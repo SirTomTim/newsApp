@@ -7,45 +7,28 @@ import { NewsContext } from "../API/Context";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const TopNavigation = ({ index, setIndex }) => {
-  const { darkTheme, setDarkTheme, fetchNews } = useContext(NewsContext);
+  var {fetchNews } = useContext(NewsContext);
 
   return (
     <View
-      style={{
-        ...styles.container,
-        backgroundColor: darkTheme ? "#282C35" : "white",
-      }}
-    >
+      style={{...styles.container, backgroundColor:  "#282C35"}}>
       {index === 0 ? (
-        <TouchableOpacity
-          onPress={() => setDarkTheme(!darkTheme)}
-          style={styles.left}
-        >
-          <Text
-            style={{ ...styles.text, color: darkTheme ? "lightgrey" : "black" }}
-          >
-            <MaterialCommunityIcons
-              name="theme-light-dark"
-              size={24}
-              color="#007FFF"
-            />
-          </Text>
+        <TouchableOpacity style={styles.left}>
         </TouchableOpacity>
       ) : (
         <TouchableOpacity
           style={styles.left}
-          onPress={() => setIndex(index === 0 ? 1 : 0)}
         >
           <SimpleLineIcons name="arrow-left" size={15} color="#007FFF" />
           <Text
-            style={{ ...styles.text, color: darkTheme ? "lightgrey" : "black" }}
+            style={{ ...styles.text, color:  "lightgrey" }}
           >
             Discover
           </Text>
         </TouchableOpacity>
       )}
 
-      <Text style={{ ...styles.center, color: darkTheme ? "white" : "black" }}>
+      <Text style={{ ...styles.center, color: "white" }}>
         {index ? "All News" : "Discover"}
       </Text>
       {index ? (
@@ -63,7 +46,7 @@ const TopNavigation = ({ index, setIndex }) => {
           onPress={() => setIndex(index === 0 ? 1 : 0)}
         >
           <Text
-            style={{ ...styles.text, color: darkTheme ? "white" : "black" }}
+            style={{ ...styles.text, color: "white" }}
           >
             All News
           </Text>

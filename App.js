@@ -4,14 +4,12 @@ import Context, { NewsContext } from "./API/Context";
 import InshortTabs from "./components/InshortTabs";
 
 function App() {
-  const { darkTheme } = useContext(NewsContext);
 
   return (
     <View
       style={{
         ...styles.container,
-        backgroundColor: darkTheme ? "#282C35" : "white",
-      }}
+        backgroundColor: "#282C35"}}
     >
       <InshortTabs />
     </View>

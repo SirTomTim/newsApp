@@ -13,10 +13,7 @@ import SingleNews from "./SingleNews";
 import { Entypo } from "@expo/vector-icons";
 
 const Search = () => {
-  const {
-    darkTheme,
-    news: { articles },
-  } = useContext(NewsContext);
+  const {news: { articles },} = useContext(NewsContext);
 
   const [searchResults, setSearchResults] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
@@ -40,12 +37,12 @@ const Search = () => {
       <TextInput
         style={{
           ...styles.search,
-          backgroundColor: darkTheme ? "black" : "lightgrey",
-          color: darkTheme ? "white" : "black",
+          backgroundColor: "lightgrey",
+          color: "black",
         }}
         onChangeText={(text) => handleSearch(text)}
         placeholder="Search for news"
-        placeholderTextColor={darkTheme ? "white" : "grey"}
+        placeholderTextColor={"white"}
       />
       <View style={styles.searchResults}>
         {searchResults.slice(0, 10).map((n) => (
@@ -57,8 +54,8 @@ const Search = () => {
             <Text
               style={{
                 ...styles.singleResult,
-                backgroundColor: darkTheme ? "black" : "white",
-                color: darkTheme ? "white" : "black",
+                backgroundColor: "white",
+                color: "black",
               }}
             >
               {n.title}
@@ -87,7 +84,7 @@ const Search = () => {
           <Entypo name="circle-with-cross" size={30} color="white" />
         </TouchableOpacity>
         <View style={{ height: "100%", transform: [{ scaleY: -1 }] }}>
-          <SingleNews item={currentNews} darkTheme={darkTheme} />
+          <SingleNews item={currentNews}  />
         </View>
       </Modal>
     </View>

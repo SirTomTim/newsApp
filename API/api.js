@@ -1,4 +1,4 @@
-// https://documenter.getpostman.com/view/3479169/Szf7zncp?version=latest#236e4205-de53-41e0-bfc2-f17d396f9741
+
 
 export const categories = [
   {
@@ -41,35 +41,16 @@ export const country = [
   },
 ];
 
-export const sources = [
-  {
-    id: "bbc-news",
-    name: "BBC News",
-    pic: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/BBC_News_2019.svg/1200px-BBC_News_2019.svg.png",
-  },
-  {
-    id: "cnn",
-    name: "CNN",
-    pic: "https://bankimooncentre.org/wp-content/uploads/2020/06/cnn-logo-square.png",
-  },
-  {
-    id: "fox-news",
-    name: "Fox News",
-    pic: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Fox_News_Channel_logo.svg/768px-Fox_News_Channel_logo.svg.png",
-  },
-  {
-    id: "google-news",
-    name: "Google News",
-    pic: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Google_News_icon.png",
-  },
-];
 
-export const BASE_URL = "https://saurav.tech/NewsAPI/";
+
+
+export const base_url = "https://newsapi.org/v2"
+export const api_key = "45ee7df7bb714fbdbb2b519e10230ae9"
 
 export const getNewsAPI = (category, country = "gb") => {
-  return `${BASE_URL}/top-headlines/category/${category}/${country}.json`;
+  return `${base_url}/top-headlines?country=${country}&category=${category}&apiKey=${api_key}`;
 };
 
-export const getSourceAPI = (source) => {
-  return `${BASE_URL}/everything/${source}.json`;
+export const getSourceAPI = (sources) => {
+  return `${base_url}/top-headlines/${sources}?apiKey=${api_key}`;
 };

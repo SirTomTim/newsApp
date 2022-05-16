@@ -12,15 +12,12 @@ import SingleNews from "../components/SingleNews";
 
 const NewsScreen = () => {
   const {
-    news: { articles },
-    darkTheme,
+    news: { articles }
   } = useContext(NewsContext);
 
   const [activeIndex, setActiveIndex] = useState();
 
   const windowHeight = Dimensions.get("window").height;
-
-  // console.log(articles && articles[9]);
 
   return (
     <View style={styles.carousel}>
@@ -33,7 +30,7 @@ const NewsScreen = () => {
           itemHeight={windowHeight}
           vertical={true}
           renderItem={({ item, index }) => (
-            <SingleNews item={item} index={index} darkTheme={darkTheme} />
+            <SingleNews item={item} index={index} />
           )}
           onSnapToItem={(index) => setActiveIndex(index)}
         />

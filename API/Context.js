@@ -9,10 +9,10 @@ const Context = ({ children }) => {
   const [category, setCategory] = useState("general");
   const [source, setSource] = useState();
   const [index, setIndex] = useState(1);
-  const [darkTheme, setDarkTheme] = useState(true);
+  
 
-  const fetchNews = async (reset = category) => {
-    const { data } = await axios.get(getNewsAPI(reset));
+  const fetchNews = async () => {
+    const { data } = await axios.get(getNewsAPI("general","gb"));
     setNews(data);
     setIndex(1);
   };
@@ -20,7 +20,7 @@ const Context = ({ children }) => {
   const fetchNewsfromSource = async () => {
     try {
       const { data } = await axios.get(getSourceAPI(source));
-      setNews(data);
+      setSource(data);
       setIndex(1);
     } catch (error) {
       console.log(error);
@@ -42,10 +42,7 @@ const Context = ({ children }) => {
         setCategory,
         index,
         setIndex,
-        setSource,
-        darkTheme,
-        setDarkTheme,
-        fetchNews,
+        
       }}
     >
       {children}

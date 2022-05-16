@@ -15,15 +15,15 @@ import Search from "../components/Search";
 
 const DiscoverScreen = () => {
   const windowWidth = Dimensions.get("window").width;
-  const SLIDE_WIDTH = Math.round(windowWidth / 3.5);
+  const SLIDE_WIDTH = Math.round(windowWidth / 4);
 
-  const { setCategory, setSource, darkTheme } = useContext(NewsContext);
+  const { setCategory, setSource,} = useContext(NewsContext);
 
   return (
     <View style={styles.discover}>
       <Search />
       <Text
-        style={{ ...styles.subtitle, color: darkTheme ? "white" : "black" }}
+        style={{ ...styles.subtitle, color: "white" }}
       >
         Categories
       </Text>
@@ -38,7 +38,7 @@ const DiscoverScreen = () => {
             >
               <Image source={{ uri: item.pic }} style={styles.categoryImage} />
               <Text
-                style={{ ...styles.name, color: darkTheme ? "white" : "black" }}
+                style={{ ...styles.name, color: "white" }}
               >
                 {item.name}
               </Text>
@@ -51,22 +51,6 @@ const DiscoverScreen = () => {
         inactiveSlideScale={1}
         inactiveSlideOpacity={1}
       />
-      <Text
-        style={{ ...styles.subtitle, color: darkTheme ? "white" : "black" }}
-      >
-        Sources
-      </Text>
-      <View style={styles.sources}>
-        {sources.map((s) => (
-          <TouchableOpacity
-            onPress={() => setSource(s.id)}
-            key={s.id}
-            style={styles.sourceContainer}
-          >
-            <Image source={{ uri: s.pic }} style={styles.sourceImage} />
-          </TouchableOpacity>
-        ))}
-      </View>
     </View>
   );
 };
@@ -95,7 +79,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
   },
   categoryImage: {
-    height: "60%",
+    height: "100%",
     width: "100%",
     resizeMode: "contain",
   },
@@ -110,7 +94,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
   },
   sourceContainer: {
-    height: 150,
+    height: 100,
     width: "40%",
     borderRadius: 10,
     margin: 15,
